@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <listener>
+        <listener-class>com.youdao.listemer.AppListener</listener-class>
+    </listener>
+
+    <servlet-mapping>
+        <servlet-name>openapi</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>openapi</servlet-name>
+        <servlet-class>com.youdao.servlet.OpenApiServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SystemManager</servlet-name>
+        <url-pattern>/system</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SystemManager</servlet-name>
+        <servlet-class>com.youdao.servlet.SystemManager</servlet-class>
+    </servlet>
+    <context-param>
+        <param-name>log4jConfigPath</param-name>
+        <param-value>/config/log4j.properties</param-value>
+    </context-param>
+    <context-param>
+        <param-name>taskClassNames</param-name>
+        <param-value>com.youdao.tasks.ClearCacheTask</param-value>
+    </context-param>
+</web-app>
